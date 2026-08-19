@@ -1,0 +1,17 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias (caso adicionemos build no futuro)
+node_modules/
+dist/
+
+# Gravacoes de teste
+*.mp4
+*.webm

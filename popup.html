@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Tab Recorder</h1>
+      <span id="recDot" class="rec-dot hidden"></span>
+    </header>
+
+    <div id="controls">
+      <label class="row">
+        <span>Qualidade</span>
+        <select id="fps">
+          <option value="30">1080p &middot; 30 fps</option>
+          <option value="60">1080p &middot; 60 fps</option>
+        </select>
+      </label>
+      <label class="row">
+        <span>Countdown</span>
+        <select id="countdown">
+          <option value="0">Sem countdown</option>
+          <option value="3">3 segundos</option>
+          <option value="5">5 segundos</option>
+          <option value="10">10 segundos</option>
+        </select>
+      </label>
+    </div>
+
+    <p class="hint">Escolha a tab que sera gravada:</p>
+    <div id="tabList" class="tab-list"></div>
+
+    <button id="recordBtn" class="btn" disabled>Gravar</button>
+    <p id="status" class="status"></p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

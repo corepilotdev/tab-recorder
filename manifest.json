@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Recorder",
+  "version": "0.1.0",
+  "description": "Grava audio e video de uma tab especifica, mesmo em segundo plano, sem capturar a tela.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabCapture", "offscreen", "tabs", "downloads", "storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tab Recorder"
+  }
+}

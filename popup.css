@@ -1,0 +1,233 @@
+:root {
+  --accent: #2b6cff;
+  --accent-dark: #1f57d6;
+  --rec: #e23b3b;
+  --bg: #ffffff;
+  --surface: #f6f7fb;
+  --border: #e2e4ea;
+  --text: #1f2330;
+  --muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  margin: 0;
+  padding: 16px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ---- Header ---- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.rec-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--rec);
+  margin-left: auto;
+  box-shadow: 0 0 0 4px rgba(226, 59, 59, 0.18);
+  animation: pulse 1.1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---- Controls ---- */
+#controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.row > span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ---- Dropdowns estilizados ---- */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 1;
+  max-width: 200px;
+  padding: 9px 34px 9px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' fill='none' stroke='%236b7280' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+select:hover:not(:disabled) {
+  border-color: #c7ccd8;
+  background-color: #eef0f6;
+}
+
+select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(43, 108, 255, 0.22);
+}
+
+select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---- Lista de tabs ---- */
+.hint {
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.tab-list {
+  max-height: 256px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.tab-list::-webkit-scrollbar {
+  width: 8px;
+}
+.tab-list::-webkit-scrollbar-thumb {
+  background: #d7dae3;
+  border-radius: 8px;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f1f5;
+  transition: background-color .12s ease;
+}
+
+.tab-item:last-child {
+  border-bottom: none;
+}
+
+.tab-item:hover:not(.disabled) {
+  background: var(--surface);
+}
+
+.tab-item:has(input:checked) {
+  background: rgba(43, 108, 255, 0.10);
+}
+
+.tab-item.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tab-item input[type="radio"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  cursor: inherit;
+}
+
+.tab-item img {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  border-radius: 3px;
+}
+
+.tab-item .title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Botao ---- */
+.btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .05s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  background: #c2cadb;
+  cursor: not-allowed;
+}
+
+.btn.recording {
+  background: var(--rec);
+}
+
+.btn.recording:hover:not(:disabled) {
+  background: #c62f2f;
+}
+
+/* ---- Status ---- */
+.status {
+  margin: 10px 0 0;
+  min-height: 16px;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+}
